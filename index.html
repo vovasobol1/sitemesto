@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/868a34ca79.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-black overflow-y-auto overflow-x-hidden">
+
+    <header class="mx-auto  lg:w-[880px] md:w-[700px] sm:w-[500px] w-[300px] mt-[45px] h-[74px]  ">
+        <div class="flex flex-col justify-between my-auto">
+            <img class="h-[33px] w-[142px]" src="./images/логотип.png">
+            <div class="border border-1 h-[0px] opacity-70  border-[#545454] mt-[39px]"></div>
+        </div>
+    </header>
+
+    <main class="mt-[40px]  lg:w-[880px] md:w-[700px] sm:w-[500px] w-[282px] mx-auto ">
+
+        <!-- профиль -->
+        <section class="md:h-[120px] sm:h-[200px]  flex md:flex-row flex-col">
+            <div class="flex sm:flex-row flex-col">
+                <img class="w-[120px] h-[120px] rounded-full sm:ml-[0px] mx-auto" src="./images/фото профиля.jpg">
+
+                <div class="ml-[30px] flex flex-col  ">
+                    <div class="flex ">
+                        <div class="text-white sm:text-[42px] text-[27px] whitespace-nowrap flex">
+                            <h1 id="profile_name">
+                                Жак-Ив Кусто
+                            </h1>
+
+                            <button id="pop_up_open"
+                                class="border sm:w-[24px] sm:h-[24px] h-[18px] w-[18px] mb-[4px]  mt-[37px]  ml-[18px] hover:opacity-60 sm:mr-[0px] mr-[50px] ">
+                                <img class="sm:w-[10px] sm:h-[10px] w-[7.5px] h-[7.5px] sm:m-[7px] m-[5.25px]"
+                                    src="./images/карандаш.svg">
+                            </button>
+                        </div>
+
+
+                    </div>
+
+
+                    <h1 id="profile__info-about" class="mt-[16px] sm:font-normal text-[#FFFFFF] sm:text-lg text-[14px]">
+                        Исследователь океана
+                    </h1>
+                </div>
+            </div>
+
+
+            <button id="pop_up_new_post_open"
+                class="border border-[#FFFFFF] hover:opacity-60 md:w-[120px] md:h-[40px] sm:w-[500px] w-[282px] h-[50px] lg:ml-auto sm:ml-auto  border-2 my-auto sm:mt-[36px] mt-[36px]">
+                <div class="lg:w-[22px] lg:h-[22px] m-auto text-[#FFFFFF]">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </button>
+        </section>
+
+
+        <!-- элементы -->
+        <section class="flex flex-col lg:mt-[51px] md:mt-[] mt-[36px]  ">
+            <div id="posts-wrapper" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mx-auto gap-x-4 gap-y-4">
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-[#545454] text-lg w-[880px] mx-auto mt-[67px] mb-[60px]">
+        © 2020 Mesto Russia
+    </footer>
+
+    <!-- pop up редактирование профиля -->
+    <div id="pop_up_edit_proffile" class=" fixed inset-0 bg-black bg-opacity-60 hidden">
+        <!-- popup container -->
+        <div
+            class=" lg:w-[430px] lg:h-[330px] sm:w-[430px] sm:h-[330px] w-[282px] h-[322px] bg-white mx-auto lg:mt-[70px] sm:mt-[70px] mt-[123px] rounded-[10px]">
+            <!-- popup body -->
+            <div class="relative">
+                <h1 class="mt-[34px]  sm:ml-[36px] ml-[22px] sm:text-2xl text-xl font-bold"> Редактировать профиль</h1>
+
+                <input id="input_edit_profile_name" type="text" placeholder="Жак-Ив Кусто"
+                    class="focus:outline-none mt-[54px] sm:ml-[36px] ml-[22px]"> </input>
+                <div class=" border mt-[13px] sm:ml-[36px] ml-[22px] lg:w-[358px] sm:w-[358px] w-[238px] "></div>
+
+                <input id="input_profession" type="text" placeholder="Исследователь  океана"
+                    class="focus:outline-none mt-[30px] sm:ml-[36px] ml-[22px] ">
+                </input>
+                <div class=" border mt-[13px] sm:ml-[36px] ml-[22px] lg:w-[358px] sm:w-[358px] w-[238px]"></div>
+
+                <button id="save_profile_info"
+                    class="lg:w-[358px] sm:w-[358px] w-[238px] lg:h-[50px] sm:h-[50px] h-[46px] bg-black sm:ml-[36px] ml-[22px] sm:mt-[48px] mt-[45px] text-white hover:bg-slate-700 duration-300">Сохранить
+                </button>
+                <button id="pop_up_close" class="absolute hover:opacity-60 right-7 top-12">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- pop up выложить фото -->
+    <div id="pop_up_new_post" class=" fixed inset-0 bg-black bg-opacity-60 hidden ">
+        <!-- popup container -->
+        <div
+            class=" lg:w-[430px] lg:h-[330px] sm:w-[430px] sm:h-[330px] w-[282px] h-[322px] bg-white mx-auto lg:mt-[70px] sm:mt-[70px] mt-[123px] rounded-[10px]">
+            <!-- popup body -->
+            <div class="relative">
+                <h1 class="mt-[34px]  sm:ml-[36px] ml-[22px] sm:text-2xl text-xl font-bold"> Новое место </h1>
+                <form id="add-new-form">
+
+                    <input id="input-new-place" type="text" placeholder="название"
+                        class="focus:outline-none mt-[54px] sm:ml-[36px] ml-[22px]">
+                    </input>
+                    <div class=" border mt-[13px] sm:ml-[36px] ml-[22px] lg:w-[358px] sm:w-[358px] w-[238px] "></div>
+
+                    <input id="input-new-place-link" type="text" placeholder="ссылка на картинку"
+                        class="focus:outline-none mt-[30px] sm:ml-[36px] ml-[22px] ">
+                    </input>
+                    <div class=" border mt-[13px] sm:ml-[36px] ml-[22px] lg:w-[358px] sm:w-[358px] w-[238px]"></div>
+
+                    <button id="add-new-form-submit"
+                        class="lg:w-[358px] sm:w-[358px] w-[238px] lg:h-[50px] sm:h-[50px] h-[46px] bg-black sm:ml-[36px] ml-[22px] sm:mt-[48px] mt-[45px] text-white hover:bg-slate-700 duration-300">Создать
+                    </button>
+                </form>
+                <button id="pop_up_new_post_close" class="absolute hover:opacity-60 right-7 top-12">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
